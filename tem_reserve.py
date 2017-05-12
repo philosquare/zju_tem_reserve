@@ -107,8 +107,11 @@ class ReserveTem(object):
 def job():
     rsv = ReserveTem()
     success_num = 0
+    try_time = 0
 
-    while success_num < len(reserve_info):
+    while success_num < len(reserve_info) and try_time < 100:
+        try_time += 1
+        
         # 登录
         rsv.login(email, password)
 
